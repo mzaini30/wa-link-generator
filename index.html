@@ -1,0 +1,40 @@
+---
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WA Link Generator - mzaini30.com</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		td {
+			vertical-align: top;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>
+				<p>Nomor Whatsapp</p>
+				<p><input type="text" name="" class="pantau nomor"></p>
+				<p>Pesan</p>
+				<p><textarea name="" id="" class="pantau pesan" cols="30" rows="9"></textarea></p>
+			</td>
+			<td>
+				<p>Hasil</p>
+				<p><input type="text" class="hasil"></p>
+			</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		{% include jquery.min.js %}
+		$('.pantau').on('keyup', function(){
+			nomor = $('.nomor').val()
+			pesan = $('.pesan').val().replace(/ /g, '%20').replace(/:/g, '%3A').replace(/\n/g, '%0A')
+			hasil = 'https://api.whatsapp.com/send?phone=' + nomor + '&text=' + pesan
+			$('.hasil').val(hasil)
+		})
+	</script>
+</body>
+</html>
