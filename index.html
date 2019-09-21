@@ -31,7 +31,7 @@
 		{% include jquery.min.js %}
 		$('.pantau').on('keyup', function(){
 			nomor = $('.nomor').val()
-			pesan = $('.pesan').val().replace(/ /g, '%20').replace(/:/g, '%3A').replace(/\n/g, '%0A')
+			pesan = $('.pesan').val().replace(/%/g, '%25').replace(/ /g, '%20').replace(/:/g, '%3A').replace(/\n/g, '%0A')
 			hasil = 'https://api.whatsapp.com/send?phone=' + nomor + '&text=' + pesan
 			$('.hasil').val(hasil)
 		})
